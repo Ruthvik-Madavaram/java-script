@@ -7,43 +7,35 @@
     <title>Document</title>
 </head>
 <body>
-    <p class = "local-para">Local Storage: </p><button class = "local">Local</button>
-    <p class = "session-para">Session Storage: </p><button class = "session">Session</button>
+    <p class = "local-para">Local Storage: 0</p><button class = "local">Local</button>
+    <p class = "session-para">Session Storage: 0</p><button class = "session">Session</button>
     <script>
         if(!localStorage.getItem('local')){
             localStorage.setItem('local', '0');
-            var localParaElement = document.querySelector('.local-para');
-            localParaElement.innerHTML = `Local Storage: 0`;
         }
-    
-            var localParaElement = document.querySelector('.local-para');
-            localParaElement.innerHTML = `Local Storage: ${localStorage.getItem('local')}`;
-            localStorageButton = document.querySelector('.local');
-            localStorageButton.addEventListener('click', () => {
-                localStorageValue = parseInt(localStorage.getItem('local'));
-                localStorageValue += 1;
-                localStorage.setItem('local', localStorageValue);
-                localParaElement = document.querySelector('.local-para');
-                localParaElement.innerHTML = `Local Storage: ${localStorageValue}`;
-            });
+        var localParaElement = document.querySelector('.local-para');
+        localParaElement.innerHTML = `Local Storage: ${localStorage.getItem('local')}`;
+        localStorageButton = document.querySelector('.local');
+        localStorageButton.addEventListener('click', () => {
+            localStorageValue = parseInt(localStorage.getItem('local'));
+            localStorageValue += 1;
+            localStorage.setItem('local', localStorageValue);
+            localParaElement.innerHTML = `Local Storage: ${localStorageValue}`;
+        });
         
         
         if (!sessionStorage.getItem('session')) {
             sessionStorage.setItem('session', '0');
-            var sessionParaElement = document.querySelector('.session-para');
-            sessionParaElement.innerHTML = `Session Storage: 0`;
         }
-        
-            var sessionParaElement = document.querySelector('.session-para');
-            sessionParaElement.innerHTML = `Session Storage: ${sessionStorage.getItem('session')}`;
-            sessionStorageButton = document.querySelector('.session');
-            sessionStorageButton.addEventListener('click', () => {
-                sessionStorageValue = Number(sessionStorage.getItem('session'));
-                sessionStorageValue += 1;
-                sessionStorage.setItem('session', sessionStorageValue);
-                var sessionParaElement = document.querySelector('.session-para');
-                sessionParaElement.innerHTML = `Session Storage: ${sessionStorageValue}`;
-            });
+        var sessionParaElement = document.querySelector('.session-para');
+        sessionParaElement.innerHTML = `Session Storage: ${sessionStorage.getItem('session')}`;
+        sessionStorageButton = document.querySelector('.session');
+        sessionStorageButton.addEventListener('click', () => {
+            sessionStorageValue = Number(sessionStorage.getItem('session'));
+            sessionStorageValue += 1;
+            sessionStorage.setItem('session', sessionStorageValue);
+            sessionParaElement.innerHTML = `Session Storage: ${sessionStorageValue}`;
+        });
     
     </script>
 </body>
